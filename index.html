@@ -1,0 +1,238 @@
+<!--
+=========================================================
+* Argon Design System - v1.2.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-design-system
+* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Inponow - Scan KUY
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="./assets/css/font-awesome.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="./assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
+</head>
+
+<body class="index-page">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-default">
+      <div class="container">
+          <h3 style="text-transform:capitalize;font-weight:bold;color:white;" href="#">Scan Kuy</h3>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-default">
+              <div class="navbar-collapse-header">
+                  <div class="row">
+                      <div class="col-6 collapse-brand">
+
+                      </div>
+                      <div class="col-6 collapse-close">
+                          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                              <span></span>
+                              <span></span>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <ul class="navbar-nav ml-lg-auto">
+                  <li class="nav-item">
+                      <button class="nav-link nav-link-icon scan_qrcode" style="background:transparent;padding:0;border:none">
+                          <i class="ni ni-camera-compact"></i>
+                          <span>Scan QRcode</span>
+                      </button>
+                  </li>
+                  <li class="nav-item">
+                      <button class="nav-link nav-link-icon generate_qrcode" style="background:transparent;padding:0;border:none">
+                          <i class="ni ni-badge"></i>
+                          <span>Generate QRcode</span>
+                      </button>
+                  </li>
+                  <li class="nav-item">
+                      <button class="nav-link nav-link-icon generate_barcode" style="background:transparent;padding:0;border:none">
+                          <i class="ni ni-align-center"></i>
+                          <span>Generate Barcode</span>
+                      </button>
+                  </li>
+              </ul>
+
+          </div>
+      </div>
+  </nav>
+
+  <div class="section section-components pb-0" id="section-components">
+    <div class="container">
+      <div id="scanqr">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+            <b style="font-weight:bold">Petunjuk</b>: Arahkan QRcode ke kamera anda, hingga bunyi <b><i>Beep</i></b> terdengar
+            </p>
+            <div class="area-alert">
+
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <b>QR Code</b>
+            <div class="form-group">
+              <video id="scan_preview" class="mt-2" style="width:100%;height:235px;background:#dadada;border-radius:5px"></video>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr style="margin:10px 0 20px">
+            <b for="">Result :</b>
+            <textarea name="name" class="form-control mt-2 area_scan_result"  rows="4" style="width:100%"></textarea>
+            <br>
+            <audio id="beep">
+              <source src="assets/audio/beep.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      </div>
+      <div id="genqr" style="display:none">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+            <b style="font-weight:bold">Petunjuk</b>: Isi form input lalu tekan/sentuh tombol Qrcode
+            </p>
+          </div>
+          <div class="col-md-12 mt-4">
+            <form class="gen_qrcode" action="index.html" method="post">
+              <div class="row">
+                  <div class="col-md-10">
+                    <b for="">Your Text :</b>
+                    <input type="text" class="form-control mt-2 g_qrcode" name="" required value="">
+                  </div>
+                  <div class="col-md-2">
+                    <b style="color:transparent !important">Your Text :</b>
+                    <button type="submit" class="btn btn-default" name="button"> <i class="ni ni-world"></i> Qrcode</button>
+                  </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <b>Result :</b>
+            <div class="form-group mt-2" style="width:100%;height:235px;background:#dadada;border-radius:5px;padding-top:15px;padding-bottom:15px;">
+              <center><div id="qrcode_area_"></div></center>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="grbacode" style="display:none">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+            <b style="font-weight:bold">Petunjuk</b>: Isi form input lalu tekan/sentuh tombol Barcode
+            </p>
+          </div>
+          <div class="col-md-12 mt-4">
+            <form class="gen_barcode" action="index.html" method="post">
+              <div class="row">
+                  <div class="col-md-10">
+                    <b for="">Your Text :</b>
+                    <input type="text" class="form-control mt-2 g_barcode" name="" required value="">
+                  </div>
+                  <div class="col-md-2">
+                    <b style="color:transparent !important">Your Text :</b>
+                    <button type="submit" class="btn btn-default" name="button"> <i class="ni ni-world"></i> Barcode</button>
+                  </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <b>Result :</b>
+            <div class="form-group mt-2" style="width:100%;height:235px;background:#dadada;border-radius:5px">
+            	<center><svg id="code128" style="margin-top:50px;"></svg></center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer bg-default" style="width:100% !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="copyright text-center  text-lg-left  text-muted">
+            © 2021 Inponow
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">Big thank's to</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">schmich</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">lindell</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" target="_blank">davidshimjs</a>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="row align-items-center justify-content-lg-between">
+
+        </div> -->
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="./assets/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/moment.min.js"></script>
+  <script src="./assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
+  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="./assets/js/argon-design-system.min.js?v=1.2.0" type="text/javascript"></script>
+  <script src="./assets/js/plugins/adapter.min.js?v=1" type="text/javascript"></script>
+  <script src="./assets/js/plugins/instascan.min.js?v=1" type="text/javascript"></script>
+  <script src="./assets/js/plugins/jsbarcode.all.min.js?v=1" type="text/javascript"></script>
+  <script src="./assets/js/plugins/qrcode.js?v=2" type="text/javascript" ></script>
+  <script src="./assets/js/custom.js?v=2" type="text/javascript" ></script>
+</body>
+
+</html>
