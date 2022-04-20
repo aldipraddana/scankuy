@@ -3,7 +3,8 @@ $(function() {
     {
       video: $('#scan_preview')[0],
       refractoryPeriod: 3000,
-      scanPeriod: 1
+      scanPeriod: 1,
+      mirror: false
     });
   scanner.addListener('scan', function (content) {
     console.log(content);
